@@ -1,0 +1,7 @@
+<h1>Register</h1>
+
+<form method ="POST" action="/register">
+    {% csrf_token %}
+    {{ form }}
+    <br><button>Submit</button>
+</form>

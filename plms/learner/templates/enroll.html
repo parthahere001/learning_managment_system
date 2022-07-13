@@ -1,0 +1,10 @@
+<h1>Enroll In Course</h1>
+<br><br>
+<h3>Enter your enroll key :</h3>
+<br><br>
+<b></b>
+<form method="post" action="senroll/">
+   {% csrf_token %}
+   <input name="userkey">
+   <input type="submit" value="Submit">
+</form>
