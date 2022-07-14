@@ -23,7 +23,7 @@ def index(request):
   context = {
     'course': course,
   }
-  return render(request, 'index.html', context)
+  return render(request, 'index2.html', context)
 
 def home(request):
   return render(request, 'home.html')
