@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.template import loader
-
+from django.shortcuts import redirect
 from learner.forms import CreateUserForm
 from .models import Course, Student
 
@@ -18,12 +18,40 @@ from .models import Course, Student
 # 	return render(request, 'mainapp/index.html')
 
 def index(request):
-  course = Course.objects.all()
+  new_user=request.user 
+  new_user= User.objects.get(id=new_user.id)
+  new_s = Student.objects.get(sid=new_user.id)
+  course = Course.objects.all().exclude(student = new_s)
+  
 #   template = loader.get_template('mainapp/index.html')
   context = {
     'course': course,
   }
   return render(request, 'index2.html', context)
+
+
+def eindex(request):
+  new_user=request.user 
+  new_user= User.objects.get(id=new_user.id)
+  new_s = Student.objects.get(sid=new_user.id)
+  course = Course.objects.filter(student = new_s)
+#   template = loader.get_template('mainapp/index.html')
+  context = {
+    'course': course,
+  }
+  return render(request, 'index3.html', context)
+
+
+
+def resources(request, id):
+  mycourse = Course.objects.get(id=id)
+  template = loader.get_template('resources.html')
+  context = {
+    'mycourse' : mycourse, 
+  }
+  return HttpResponse(template.render(context, request))
+
+
 
 def home(request):
   return render(request, 'home.html')
@@ -96,6 +124,7 @@ def register(request):
          
       member = Student(sid=new_user)
       member.save()
+      return render(request, 'home.html')
      
   context = {'form':form}
   
@@ -129,3 +158,6 @@ def userlogin(request):
 #     return redirect('home')
 	
 	
+def userlogout(request):
+    logout(request)
+    return redirect('home')

@@ -12,6 +12,7 @@ class Course(models.Model):
  description = models.CharField(max_length=300)
  teacher = models.CharField(max_length=50)
  enrollkey = models.CharField(max_length=50, unique = True)
+ fek = models.CharField(max_length=50,  blank=True, default='')
 
  class meta:
      verbose_name_plural="1. Courses"
