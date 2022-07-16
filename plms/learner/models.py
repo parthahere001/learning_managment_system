@@ -13,6 +13,7 @@ class Course(models.Model):
  teacher = models.CharField(max_length=50)
  enrollkey = models.CharField(max_length=50, unique = True)
  fek = models.CharField(max_length=50,  blank=True, default='')
+ cresource = models.FileField(upload_to="media",blank=True, default='')
 
  class meta:
      verbose_name_plural="1. Courses"
