@@ -86,10 +86,10 @@
   {% cycle '#f083fc' '#689bed' 'yellow' 'coral' 'grey' as bgcolor silent %}
 
   <div class="card"
-    style=" box-shadow: black; max-width: 27%; margin: 10%; background-color: {{ bgcolor }}; display: inline-block; align-items: streach; justify-content:space-around; width: 30%; padding: 1em; margin: 3px; border: 2px solid black; border-radius: 7px;">
+    style=" box-shadow: black;margin-left: 30px; max-width: 27%; margin: 10%; background-color: {{ bgcolor }}; display: inline-block; width: 30%; padding: 1em; margin: 3px; border: 2px solid black; border-radius: 7px; margin: left 30px;">
     <div class="card-body">
       <h3 class="card-title" style="text-decoration: underline;">{{ x.title }}</h3>
-      <h5 class="card-subtitle mb-2 text-muted">Taught By : {{ x.teacher }}</h5>
+      <h5 class="card-subtitle mb-2 text-muted">Taught By : {{ x.teacher.name }}</h5>
       <p style="font-size: 20px;" class="card-text">{{ x.description }}</p>
 
       <div style="padding-left: 25%;">

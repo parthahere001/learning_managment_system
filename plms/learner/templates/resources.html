@@ -3,5 +3,36 @@
 
 <!-- <br><br><img src="https://www.goodolddaysflorist.com/wp-content/uploads/2018/01/under-construction-gif-11.gif"> -->
 
+
+
+
+
 <h1 style="text-align: center; text-decoration: underline; margin-bottom: 2%;">Resources</h1>
-<h1>Download files from here<a href="{{mycourse.cresource.url}}">{{mycourse.title}}</a></h1>
+
+<!-- <h1>Download files from here<a href="{{x.cresource.url}}">{{mycourse.title}}</a></h1> -->
+
+
+{% if user.is_authenticated %}
+   {% if myteacher != null }
+<div style="  text-align: right;  font-size: 50; font-family:  'Edu QLD Beginner', cursive; font-weight: bold;">
+ <p style="position: fixed; top: 0px; right: 0px;"> Hi {{ user.username }}! <br> <br><a style="width: 60px; height: 30px; padding: 0px; padding-top: 3px;  background-color: gray; " href="{% url 'userlogout' %}">Logout</a></p>
+  </div>
+  <br><br><a href="{% url 'add' %}">Add Courses</a> <a  href="{% url 'eindex' %}">Your Courses</a>
+    {% else %}
+  <div style="  text-align: right;  font-size: 50; font-family:  'Edu QLD Beginner', cursive; font-weight: bold;">
+    <p style="position: fixed; top: 0px; right: 0px;"> Hi {{ user.username }}! <br> <br><a style="width: 60px; height: 30px; padding: 0px; padding-top: 3px;  background-color: gray; " href="{% url 'userlogout' %}">Logout</a></p>
+     </div>
+     <br><br><a href="{% url 'index' %}">Available Courses</a> <a  href="{% url 'eindex' %}">Your Courses</a>
+
+    {% endif %}
+  
+  
+{% elif %}
+<marquee style="font-weight: bold;">Please Login Or Register To Continue</marquee>
+  <p style="font-weight: bold; position: fixed; top: 8px; left:  0px;">You are not logged in</p>
+ 
+  <a  style=" font-size: 27px; margin-left: 34%; text-align: center; padding-bottom: 4%; width: 160px; height: 20px;  background-color: gray; " href="{% url 'userlogin' %}">Log In</a>
+
+  <a  style=" font-size: 27px;  text-align: center; padding-bottom: 4%; width: 160px; height: 20px;  background-color: gray; " href="{% url 'register' %}">Register</a>
+
+{% endif %}

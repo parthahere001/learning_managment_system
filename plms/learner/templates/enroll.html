@@ -139,7 +139,7 @@ body{
 style="  box-shadow: black; margin-left: 14%; margin: 20%; background-color: #09b3f7; display: inline-block; align-items: streach; justify-content:space-around;  padding: 3%; margin: 70px; border: 2px solid black; border-radius: 7px; bottom: 60px; height: 450px; padding-top: 60px; width: 80%; ">
 <div class="card-body">
   <h3 class="card-title" style="text-decoration: underline; font-size: 35px; ">{{ mycourse.title }}</h3>
-  <h5 class="card-subtitle mb-2 text-muted" style="font-size: 20px;">Taught By : {{ mycourse.teacher }}</h5>
+  <h5 class="card-subtitle mb-2 text-muted" style="font-size: 20px;">Taught By : {{ mycourse.teacher.name }}</h5>
   <p style="margin-top: 30px; margin-bottom: 10px;" >Enter Your Enroll Key</p>
 
   <form method="post"  action="senroll/">
