@@ -9,6 +9,7 @@ urlpatterns = [
     path('tcourse/', views.indext, name='indext'),
     path('add/', views.add, name='add'),
     path('add/addcourse/', views.addcourse, name='addcourse'),
+    path('tcourse/delete/<int:id>', views.delete, name='delete'),
     path('', views.userlogin, name='homepage'),
     path("course/enroll/<int:id>/", views.enroll, name = 'enroll'),
     path('ecourse/resources/<int:id>', views.resources, name='resources'),

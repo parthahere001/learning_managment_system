@@ -50,7 +50,10 @@ def addcourse(request):
     ncourse.save()
   return HttpResponseRedirect(reverse('homet'))  
 
-
+def delete(request, id):
+  course = Course.objects.get(id=id)
+  course.delete()
+  return HttpResponseRedirect(reverse('indext'))
 
 
 
