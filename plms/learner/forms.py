@@ -21,6 +21,6 @@ class Createcourse(forms.ModelForm):
 
 
 class UFF(forms.Form):
-    file = forms.FileField(widget=forms.ClearableFileInput(attrs={'mulltiple':True}))
+    file = forms.FileField(widget=forms.ClearableFileInput(attrs={'mulltiple':True, 'class':'ffi'}))
 
 

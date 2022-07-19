@@ -104,7 +104,7 @@
 }
 
 .h-100 {
-  height: 50vh !important;
+  height: 90vh !important;
 }
 
 .align-middle {
@@ -114,7 +114,7 @@
 }
 
 .column {
-  margin-top: 3rem;
+  margin-top: 10rem;
   padding-left: 3rem;
 }
 .column:hover {
@@ -137,6 +137,8 @@
 .card {
   min-height: 170px;
   margin: 0;
+  margin-top: 0px;
+  margin-bottom: 20px;
   padding: 1.7rem 1.2rem;
   border: none;
   border-radius: 0;
@@ -207,16 +209,17 @@
 <body>
 
 
-  <p style=" text-decoration: underline; font-size: 40px; font-weight: bold; color: aliceblue; text-align: center;">
-    Your Courses</p>
+  <p style=" margin-top: 20px; text-decoration: underline; font-size: 40px; font-weight: bold; color: aliceblue; text-align: center;">
+    Enrolled Courses</p>
 
 
-  <div class="container h-100" style="margin-top: 0;">
-    <div class="row align-middle">
-      {% for x in course %}
-      <div class="col-md-6 col-lg-4 column" style="margin-top: 50px;">
-        <div class="card gr-1">
-          <div class="txt">
+ 
+    <div class="container h-100" style="margin-top: 70px;">
+        <div class="row " style="margin-top: 0px; margin-bottom: 50px;">
+          {% for x in course %}
+          <div class="col-md-6 col-lg-4 column" style="margin-top: 80px; padding-top: 30px;">
+            <div class="card gr-1">
+              <div class="txt">
             
             <h1 style="font-weight: bold; color: white; text-shadow: 0 0 7px #000000;">{{ x.title }}</h1>
             <p style="font-size: 20px;">{{ x.description }}</p>
