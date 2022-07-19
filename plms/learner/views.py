@@ -13,11 +13,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse
-from .forms import CreateUserForm, Createcourse
+from .forms import CreateUserForm, Createcourse, UFF
 from django.template import loader
 from django.shortcuts import redirect
 from learner.forms import CreateUserForm
-from .models import Course, Student, Teacher
+from .models import Course, Csource, Student, Teacher
 
 # def index(request):
 # 	return render(request, 'mainapp/index.html')
@@ -282,3 +282,37 @@ def updatecdata(request, id):
 
   course.save()
   return HttpResponseRedirect(reverse('indext'))
+
+
+def rfile(request, id):
+  mycourse = Course.objects.get(id=id)
+  template = loader.get_template('rfileupload.html')
+  context = {
+    'mycourse': mycourse,
+  }
+  return HttpResponse(template.render(context, request))
+  
+
+
+def rfileupload(request,id):
+  form = UFF()
+  c = Course.objects.get(id = id)
+  if request.method == 'POST':
+    form = UFF(request.POST, request.FILES)
+    for f in request.FILES.getlist('file'):
+      cs = Csource.objects.create(fid = c, file =  f, fname = str(f))
+      cs.save()
+      return render(request, 'homet.html')
+  else:
+    form = UFF()
+  
+  context = {
+    'form':form,
+    'id' : id
+  }
+  return render (request, 'rfileupload.html', context)
+
+
+
+
+

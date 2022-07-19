@@ -23,6 +23,9 @@ urlpatterns = [
     path('course/enroll/<int:id>/senroll/', views.senroll, name='senroll'),
     path('tcourse/updatec/<int:id>', views.updatec, name='updatec'),
     path('tcourse/updatec/<int:id>/updatecdata/', views.updatecdata, name='updatecdata'),
+    # path('tcourse/rfile/<int:id>', views.rfile, name='rfile'),
+    path('tcourse/rfileupload/<int:id>', views.rfileupload, name='rfileupload'),
+    # path('tcourse/rfileupload', views.rfileupload, name ='some')
 
 
 ]

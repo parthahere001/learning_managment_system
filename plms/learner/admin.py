@@ -1,6 +1,6 @@
 from django.contrib import admin
 # Register your models here.
-from .models import Course, Student, Teacher
+from .models import Course, Csource, Student, Teacher
 
 
 
@@ -24,6 +24,7 @@ admin.site.register(Course)
 admin.site.register(Student)
 
 admin.site.register(Teacher)
+admin.site.register(Csource)
 
 
 

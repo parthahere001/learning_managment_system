@@ -1,6 +1,7 @@
 from pyexpat import model
 from statistics import mode
 from tabnanny import verbose
+from django import forms
 
 # from tkinter import CASCADE
 from django.db.models.deletion import CASCADE, SET_DEFAULT, SET_NULL
@@ -39,6 +40,12 @@ class Student(models.Model):
 
     class meta:
      verbose_name_plural="3. Students"
+
+
+class Csource(models.Model):
+    file = models.FileField(null = True)
+    fname = models.CharField(max_length=500,default='')
+    fid = models.ForeignKey(Course, on_delete=CASCADE)
 
 
 
