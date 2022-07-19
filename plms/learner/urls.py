@@ -12,7 +12,7 @@ urlpatterns = [
     path('tcourse/delete/<int:id>', views.delete, name='delete'),
     path('', views.userlogin, name='homepage'),
     path("course/enroll/<int:id>/", views.enroll, name = 'enroll'),
-    path('ecourse/resources/<int:id>', views.resources, name='resources'),
+    path('ecourse/resources/<int:id>/', views.resources, name='resources'),
     path('register', views.rhome, name='register'),
     path('registers', views.registers, name='registers'),
     path('registert', views.registert, name='registert'),
@@ -24,8 +24,10 @@ urlpatterns = [
     path('tcourse/updatec/<int:id>', views.updatec, name='updatec'),
     path('tcourse/updatec/<int:id>/updatecdata/', views.updatecdata, name='updatecdata'),
     # path('tcourse/rfile/<int:id>', views.rfile, name='rfile'),
-    path('tcourse/rfileupload/<int:id>', views.rfileupload, name='rfileupload'),
+    path('tcourse/cresource/rfileupload/<int:id>', views.rfileupload, name='rfileupload'),
+    path('tcourse/cresource/<int:id>', views.cresource, name='cresource'),
     # path('tcourse/rfileupload', views.rfileupload, name ='some')
+    path('tcourse/cresource/deletef/<int:id>', views.deletef, name='deletef'),
 
 
 ]

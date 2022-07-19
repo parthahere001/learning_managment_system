@@ -70,7 +70,7 @@ def index(request):
   context = {
     'course': course,
   }
-  return render(request, 'index2.html', context)
+  return render(request, 'index5.html', context)
 
 
 def eindex(request):
@@ -82,7 +82,7 @@ def eindex(request):
   context = {
     'course': course,
   }
-  return render(request, 'index3.html', context)
+  return render(request, 'index4.html', context)
 
 
 
@@ -102,9 +102,11 @@ def indext(request):
 
 def resources(request, id):
   mycourse = Course.objects.get(id=id)
+  mycresource = Csource.objects.filter(fid=id)
   template = loader.get_template('resources.html')
   context = {
     'mycourse' : mycourse, 
+    'mycresource' : mycresource
   }
   return HttpResponse(template.render(context, request))
 
@@ -313,6 +315,18 @@ def rfileupload(request,id):
   return render (request, 'rfileupload.html', context)
 
 
+def cresource(request, id):
+  mycresource = Csource.objects.filter(fid=id)
+  course = Course.objects.get(id=id)
+  template = loader.get_template('cresource.html')
+  context = {
+    'mycresource': mycresource,
+    'course' : course
+  }
+  return HttpResponse(template.render(context, request))
 
 
-
+def deletef(request, id):
+  csourse = Csource.objects.get(id=id)
+  csourse.delete()
+  return HttpResponseRedirect(reverse('indext'))
