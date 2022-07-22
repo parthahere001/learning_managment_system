@@ -1,5 +1,11 @@
 from django.urls import path
 from learner import views
+from django.views.static import serve
+from django.conf.urls import url
+
+
+
+
 
 urlpatterns = [
     path('homes', views.homes, name='homes'),
@@ -10,7 +16,7 @@ urlpatterns = [
     path('add/', views.add, name='add'),
     path('add/addcourse/', views.addcourse, name='addcourse'),
     path('tcourse/delete/<int:id>', views.delete, name='delete'),
-    path('', views.userlogin, name='homepage'),
+    path('', views.homepage, name='homepage'),
     path("course/enroll/<int:id>/", views.enroll, name = 'enroll'),
     path('ecourse/resources/<int:id>/', views.resources, name='resources'),
     path('register', views.rhome, name='register'),
@@ -29,5 +35,8 @@ urlpatterns = [
     # path('tcourse/rfileupload', views.rfileupload, name ='some')
     path('tcourse/cresource/deletef/<int:id>', views.deletef, name='deletef'),
 
+
+ url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 
 ]

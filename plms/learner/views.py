@@ -118,7 +118,8 @@ def homes(request):
 def homet(request):
    return render(request, 'homet.html')
 
- 
+def homepage(request):
+   return render(request, 'newindex.html')
 
 def succen(request):
   return render(request, 'succen.html')
